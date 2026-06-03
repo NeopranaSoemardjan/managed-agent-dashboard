@@ -211,7 +211,6 @@ export default function Landing() {
 
   const t = COPY[lang];
   const [billing, setBilling] = useState<"monthly" | "annual">("monthly");
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
     <div className="min-h-screen bg-white text-ink-900">
@@ -310,8 +309,8 @@ export default function Landing() {
                       </li>
                     ))}
                   </ul>
-                  <Link
-                    to="/login"
+                  {/* Replace with payment button */}
+                  <button
                     className="mt-8 w-full inline-flex items-center justify-center rounded-full text-[15px] font-medium py-3 transition-all"
                     style={
                       p.featured
@@ -322,9 +321,53 @@ export default function Landing() {
                             color: "#1d1d1f",
                           }
                     }
+                    //             onClick={        const midtransClient = require("midtrans-client");
+
+                    // const snap = new midtransClient.Snap({
+                    //   isProduction: false,
+                    //   serverKey: "Mid-server-IuSzhkP1tFBuIeWDaY8h6Kow",
+                    // });
+
+                    // const parameters = {
+                    //   transaction_details: {
+                    //     order_id: "SUB-b117ce1b-9931-409e-b98f-8be1925c9f22-PRO_M",
+                    //     gross_amount: 750000,
+                    //   },
+                    //   item_details: [
+                    //     {
+                    //       id: "PRO_M",
+                    //       name: "Langganan PRO_M",
+                    //       price: 750000,
+                    //       quantity: 1,
+                    //     },
+                    //   ],
+                    //   customer_details: {
+                    //     phone: "209420390823",
+                    //   },
+                    // };
+
+                    // snap
+                    //   .createTransaction(parameter)
+                    //   .then((transaction) => {
+                    //     const transactionToken = transaction.token;
+                    //     console.log("transactionToken:", transactionToken);
+                    //   })
+                    //   .then(
+                    //     (snapResponse) => {
+                    //       let snapToken = snapResponse.data.token;
+                    //       console.log("Retrieved snap token:", snapToken);
+                    //       window.snap.embed("YOUR_SNAP_TOKEN", {
+                    //         embedId: "snap-container",
+                    //       });
+                    //     },
+                    //     (error) => {
+                    //       res.send(`Fail to call API w/ error ${error}`);
+                    //       console.log(error);
+                    //     },
+                    //   )}
                   >
                     {price === 0 ? t.pricing.startFree : t.pricing.pick}
-                  </Link>
+                  </button>
                 </div>
               );
             })}
